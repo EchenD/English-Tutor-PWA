@@ -1,0 +1,66 @@
+{
+  "LessonId": "test_lesson_001",
+  "ScenarioId": "scenario_001",
+  "Title": "Coffee Shop Basics",
+  "Description": "Learn how to order coffee and make small talk in a café setting",
+  "AvatarPositions": {
+    "barista": "AvatarPos_1",
+    "customer": "AvatarPos_2"
+  },
+  "Turns": [
+    {
+      "TurnId": "turn_001",
+      "TurnNumber": 1,
+      "AvatarId": "barista",
+      "DialogueText": "Welcome to our café! What can I get for you today?",
+      "AudioPath": "Audio/Lessons/cafe_001/turn_001.mp3",
+      "CameraName": "Camera_Barista_Closeup",
+      "Duration": 3.5
+    },
+    {
+      "TurnId": "turn_002",
+      "TurnNumber": 2,
+      "AvatarId": "customer",
+      "DialogueText": "I'd like a cappuccino, please.",
+      "AudioPath": "Audio/Lessons/cafe_001/turn_002.mp3",
+      "CameraName": "Camera_Customer_Closeup",
+      "Duration": 2.0
+    },
+    {
+      "TurnId": "turn_003",
+      "TurnNumber": 3,
+      "AvatarId": "barista",
+      "DialogueText": "Great choice! Would you like that for here or to go?",
+      "AudioPath": "Audio/Lessons/cafe_001/turn_003.mp3",
+      "CameraName": "Camera_Wide_Shot",
+      "Duration": 3.0
+    },
+    {
+      "TurnId": "turn_004",
+      "TurnNumber": 4,
+      "AvatarId": "customer",
+      "DialogueText": "For here, please. And could I also get a blueberry muffin?",
+      "AudioPath": "Audio/Lessons/cafe_001/turn_004.mp3",
+      "CameraName": "Camera_Customer_Closeup",
+      "Duration": 3.5
+    },
+    {
+      "TurnId": "turn_005",
+      "TurnNumber": 5,
+      "AvatarId": "barista",
+      "DialogueText": "Of course! That'll be seven dollars and fifty cents. Would you like to pay with card or cash?",
+      "AudioPath": "Audio/Lessons/cafe_001/turn_005.mp3",
+      "CameraName": "Camera_Barista_Closeup",
+      "Duration": 4.5
+    },
+    {
+      "TurnId": "turn_006",
+      "TurnNumber": 6,
+      "AvatarId": "customer",
+      "DialogueText": "I'll pay with card, thanks.",
+      "AudioPath": "Audio/Lessons/cafe_001/turn_006.mp3",
+      "CameraName": "Camera_Customer_Closeup",
+      "Duration": 2.0
+    }
+  ]
+}
