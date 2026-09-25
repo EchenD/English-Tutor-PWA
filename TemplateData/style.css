@@ -1,8 +1,142 @@
-body { padding: 0; margin: 0 }
-#unity-container { position: fixed; width: 100%; height: 100%; }
-#unity-canvas { width: 100%; height: 100%; background: #231F20 }
-#unity-loading-bar { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: none }
-#unity-logo { width: 154px; height: 130px; background: url('unity-logo-dark.png') no-repeat center }
-#unity-progress-bar-empty { margin-left: auto; margin-right: auto; width: 141px; height: 18px; margin-top: 10px; background: url('progress-bar-empty-dark.png') no-repeat center }
-#unity-progress-bar-full { width: 0%; height: 18px; margin-top: 10px; background: url('progress-bar-full-dark.png') no-repeat center }
-#unity-warning { position: absolute; left: 50%; top: 5%; transform: translate(-50%); background: white; padding: 10px; display: none }
+:root {
+  color-scheme: light;
+  --app-accent: #846bdc;
+  --app-accent-soft: #eeeafd;
+  --app-ink: #25232b;
+  --app-muted: #8a8792;
+  --app-surface: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  overscroll-behavior: none;
+  background: var(--app-surface);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+#unity-container {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--app-surface);
+}
+
+#unity-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  outline: none;
+}
+
+#unity-loading-bar {
+  position: fixed;
+  z-index: 10;
+  inset: 0;
+  display: none;
+  place-items: center;
+  padding: max(24px, env(safe-area-inset-top)) max(24px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(24px, env(safe-area-inset-left));
+  background: var(--app-surface);
+  opacity: 1;
+  transition: opacity 280ms ease, visibility 280ms ease;
+}
+
+#unity-loading-bar.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#unity-loading-content {
+  width: min(230px, 68vw);
+  text-align: center;
+}
+
+#app-logo {
+  display: block;
+  width: 82px;
+  height: 82px;
+  margin: 0 auto 34px;
+  border-radius: 22px;
+  object-fit: cover;
+  box-shadow: 0 10px 28px rgba(71, 56, 125, 0.12);
+}
+
+#unity-progress-bar-empty {
+  width: 100%;
+  height: 2px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--app-accent-soft);
+}
+
+#unity-progress-bar-full {
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--app-accent);
+  transition: width 140ms ease-out;
+}
+
+#unity-loading-status {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 11px;
+  color: var(--app-muted);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+#unity-loading-percentage {
+  color: var(--app-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+#unity-warning {
+  position: fixed;
+  z-index: 20;
+  top: max(14px, env(safe-area-inset-top));
+  left: 50%;
+  display: none;
+  width: min(420px, calc(100% - 28px));
+  gap: 8px;
+  transform: translateX(-50%);
+}
+
+.unity-message {
+  padding: 11px 14px;
+  border: 1px solid #e8e5ef;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 8px 24px rgba(29, 24, 42, 0.1);
+  color: var(--app-ink);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.unity-message--warning {
+  border-color: #eadca9;
+}
+
+.unity-message--error {
+  border-color: #efc6ca;
+  color: #9b2632;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #unity-loading-bar,
+  #unity-progress-bar-full {
+    transition: none;
+  }
+}
